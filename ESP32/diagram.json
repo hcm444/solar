@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "author": "Henry Meier",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": 22.68, "left": 174.69, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo2", "top": 139.61, "left": 174.29, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -163.87,
+      "left": -72.48,
+      "attrs": { "pins": "i2c" }
+    }
+  ],
+  "connections": [
+    [ "lcd1:SDA", "esp:D21", "green", [ "h-49.47", "v150.31" ] ],
+    [ "lcd1:GND", "esp:GND.1", "black", [ "h-16.67", "v162.78" ] ],
+    [ "lcd1:VCC", "esp:3V3", "red", [ "h-8.13", "v196.73" ] ],
+    [ "lcd1:SCL", "esp:D22", "purple", [ "h-27.75", "v-44.32" ] ],
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "esp:D18", "servo1:PWM", "green", [ "h37.5", "v14.46" ] ],
+    [ "esp:VIN", "servo1:V+", "red", [ "h-25.81", "v68.77", "h167.38", "v-149.25" ] ],
+    [ "servo1:GND", "esp:GND.1", "black", [ "h-12.27", "v71.38" ] ],
+    [ "servo2:GND", "esp:GND.1", "black", [ "h0" ] ],
+    [ "esp:D19", "servo2:PWM", "green", [ "h24.46", "v136.41" ] ],
+    [ "esp:VIN", "servo2:V+", "red", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
